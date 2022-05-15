@@ -2,7 +2,7 @@ const app = require('../../loaders/express-handlebars');
 const { createOrder } = require('../../services/server/klarna');
 const { getItemById } = require('../../services/server/fakeStore');
 
-app.get('/checkout/:product_id', async function (req, res, next) {
+app.get('/:product_id', async function (req, res, next) {
 	try {
 		const { product_id } = req.params;
 		const product = await getItemById(product_id);
